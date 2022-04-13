@@ -2,19 +2,26 @@
 	import Confet from "./Confet.svelte"
 	import Svg from "./Svg.svelte"
 	import { Button, MaterialApp } from 'svelte-materialify';
+	import ContentOutside from './ContentOutside.svelte';
+	import Content from './Content.svelte';
+  import Modal from './Modal.svelte';
+	import Popup from './Popup.svelte';
+	import { modal } from './stores.js';
+
 </script>
-<Confet ></Confet>
+
 
 <title> Josh and Sarah's wedding</title>
 <main>
-	
 	<p><span>Save</span></p>
 	<p><span>the</span></p>
 	<p><span>date</span>
 	<span>.</span></p>
 	<p><span1>July</span1> <span1>2</span1><span3 style="position:relative;top:-1em;opacity:1">nd</span3> <span1>2022</span1></p>
-	<p><Button fab size="large" class="red white-text rounded">RSVP</Button></p>
-	<Button>Can't make it</Button>
+<Modal show={$modal}>
+	<Content />
+</Modal>
+	
 </main>
 
 <style>
@@ -29,7 +36,7 @@
 		position: relative;
 		width: 100%;
 		height: 100%;
-		overflow: hidden;
+		overflow: hidden	;
 		text-align: left;
 		padding: 1em;
 		max-width: 240px;
